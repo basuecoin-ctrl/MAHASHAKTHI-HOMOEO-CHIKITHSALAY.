@@ -1,4 +1,4 @@
-<input placeholder ="doctor name"html>
+
 <html>
 <head>
 <title> Case Taking </title>
