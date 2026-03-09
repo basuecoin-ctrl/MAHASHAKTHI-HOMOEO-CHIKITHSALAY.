@@ -172,6 +172,9 @@ border-radius:10px;
 <option value="Thuja Occidentals">
 <option value="Medorrhinum">
 <option value="Carbo Vegetabillis">
+  
+<h2>14.potency&dose</h2>
+
 <input placeholder="Potency">
 <input placeholder="Dose">
 
@@ -182,6 +185,8 @@ border-radius:10px;
 <h2>15.Follow Up</h2>
 
 <input type="date">
+
+<br>
 
 <button onclick="window.print()">Print Case</button>
 
