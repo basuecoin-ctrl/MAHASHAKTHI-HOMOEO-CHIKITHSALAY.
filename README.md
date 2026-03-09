@@ -185,9 +185,32 @@ border-radius:10px;
 
 <input type="date">
 
-br>
+<javascript>
+let printBtn=document.createElement("button");
+printBtn.innerHTML="Print";
 
-<button onclick="window.print()">Print Case</button>
+printBtn.onclick=function(){
+
+let w=window.open();
+
+w.document.write("<h2>Homoeopathy Prescription</h2>");
+w.document.write("Name: "+p.name+"<br>");
+w.document.write("Age: "+p.age+"<br>");
+w.document.write("Mobile: "+p.mobile+"<br>");
+w.document.write("Complaint: "+p.complaint+"<br><br>");
+
+w.document.write("Mental Symptoms: "+p.mental+"<br>");
+w.document.write("Past History: "+p.history+"<br><br>");
+
+w.document.write("<b>Remedy:</b> "+p.remedy+"<br>");
+w.document.write("<b>Medicine:</b> "+p.medicine+"<br>");
+w.document.write("FollowUp: "+p.followup);
+
+w.print();
+
+}
+
+row.insertCell(8).appendChild(printBtn);
 
 </div>
 
