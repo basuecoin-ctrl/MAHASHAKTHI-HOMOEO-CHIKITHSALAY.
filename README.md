@@ -172,16 +172,14 @@ border-radius:10px;
 <option value="Thuja Occidentals">
 <option value="Medorrhinum">
 <option value="Carbo Vegetabillis">
-
-</datalist>
 <input placeholder="Potency">
 <input placeholder="Dose">
 
-<h2>14. Prescription</h2>
+<h2>14.Prescription</h2>
 
 <textarea placeholder="Medicine instruction"></textarea>
 
-<h2>15. Follow Up</h2>
+<h2>15.Follow Up</h2>
 
 <input type="date">
 
