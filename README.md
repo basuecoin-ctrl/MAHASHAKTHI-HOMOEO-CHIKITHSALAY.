@@ -202,18 +202,16 @@ w.document.write("Complaint: "+p.complaint+"<br><br>");
 w.document.write("Mental Symptoms: "+p.mental+"<br>");
 w.document.write("Past History: "+p.history+"<br><br>");
 
-w.document.write("<b>Remedy:</b> "+p.remedy+"<br>");
+w.document.write("<b>Remedy:</b>
+"+p.remedy+"<br>");
 w.document.write("<b>Medicine:</b> "+p.medicine+"<br>");
 w.document.write("FollowUp: "+p.followup);
 
 w.print();
 
+
 }
 
 row.insertCell(8).appendChild(printBtn);
 
-</div>
-
-</body>
-</html>
 
