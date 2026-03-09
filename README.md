@@ -175,13 +175,16 @@ border-radius:10px;
   
 </datalist>
 
-<h2>13. Prescription</h2>
+<h3>prescription </h3>
 
-<textarea placeholder="Medicine instruction"></textarea>
+<textarea id="medicine" placeholder="Medicine Instruction"></textarea>
 
-<h2>14. Follow Up</h2>
+<input type="date" id="followup">
 
-<input type="date">
+<button onclick="savePatient()">Save Case</button>
+
+<hr>
+
 
 <br>
 
