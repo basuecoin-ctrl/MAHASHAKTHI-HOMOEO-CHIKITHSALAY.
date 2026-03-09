@@ -131,7 +131,7 @@ border-radius:10px;
 <input placeholder="Temperature">
 
 <h2>10 lab test report</h2>
-<input type="file"id="labReport">
+<input type="file" id="labReport">
 
 <h2>11. Diagnosis</h2
 
@@ -185,6 +185,16 @@ border-radius:10px;
 
 <input type="date">
 
+br>
+
+<button onclick="window.print()">Print Case</button>
+
+</div>
+
+</body>
+</html>
+
+
 function savePatient(){
 
 let p={
@@ -231,11 +241,3 @@ alert(
 
 row.insertCell(8).appendChild(viewBtn);
 
-<br>
-
-<button onclick="window.print()">Print Case</button>
-
-</div>
-
-</body>
-</html>
