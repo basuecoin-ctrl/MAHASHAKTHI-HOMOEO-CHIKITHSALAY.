@@ -172,17 +172,12 @@ border-radius:10px;
 <option value="Thuja Occidentals">
 <option value="Medorrhinum">
 <option value="Carbo Vegetabillis">
-  
-<h2>14.potency&dose</h2>
 
-<input placeholder="Potency">
-<input placeholder="Dose">
-
-<h2>15.Prescription</h2>
+<h2>13. Prescription</h2>
 
 <textarea placeholder="Medicine instruction"></textarea>
 
-<h2>16.Follow Up</h2>
+<h2>14. Follow Up</h2>
 
 <input type="date">
 
@@ -190,8 +185,13 @@ border-radius:10px;
 
 <button onclick="window.print()">Print Case</button>
 
+</div>
+
 </body>
 </html>
+  
+
+
 
 
 
