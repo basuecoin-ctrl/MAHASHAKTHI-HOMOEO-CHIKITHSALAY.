@@ -232,25 +232,36 @@ button:hover{
 <h2>Follow Up Date</h2>
 <input type="date">
 
+<input type="text" id="name" placeholder="Name">
+
+<input type="text" id="mobile" placeholder="Mobile">
+
+<button type="button" onclick="savePatient()">
+Save Patient
+</button>
+
 <script>
 function savePatient(){
 
 let patient = {
 name: document.getElementById("name").value,
-mobile: document.getElementById("mobile").value,
-complaint: document.getElementById("complaint").value,
-prescription: document.getElementById("prescription").value,
-followup: document.getElementById("followup").value
+mobile: document.getElementById("mobile").value
 };
 
-let patients = JSON.parse(localStorage.getItem("patients")) || [];
+let patients =
+JSON.parse(localStorage.getItem("patients"))
+|| [];
 
 patients.push(patient);
 
-localStorage.setItem("patients", JSON.stringify(patients));
+localStorage.setItem(
+"patients",
+JSON.stringify(patients)
+);
 
 alert("Patient Saved Successfully");
 
+console.log(localStorage.getItem("patients"));
 }
 </script>
 
