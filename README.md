@@ -232,7 +232,169 @@ button:hover{
 <h2>Follow Up Date</h2>
 <input type="date">
 
-<button type="submit">Save Case</button>
+<script>
+function savePatient(){
+
+let patient = {
+name: document.getElementById("name").value,
+mobile: document.getElementById("mobile").value,
+complaint: document.getElementById("complaint").value,
+prescription: document.getElementById("prescription").value,
+followup: document.getElementById("followup").value
+};
+
+let patients = JSON.parse(localStorage.getItem("patients")) || [];
+
+patients.push(patient);
+
+localStorage.setItem("patients", JSON.stringify(patients));
+
+alert("Patient Saved Successfully");
+
+}
+</script>
+
+<h2>Search Patient</h2>
+
+<input type="text" id="searchBox"
+placeholder="Enter Name or Mobile">
+
+<button onclick="searchPatient()">Search</button>
+
+<div id="result"></div>
+
+<script>
+function searchPatient(){
+
+let keyword =
+document.getElementById("searchBox")
+.value.toLowerCase();
+
+let patients =
+JSON.parse(localStorage.getItem("patients"))
+|| [];
+
+let output="";
+
+patients.forEach(function(p){
+
+if(
+p.name.toLowerCase().includes(keyword)
+||
+p.mobile.includes(keyword)
+){
+
+output += `
+<hr>
+<b>Name:</b> ${p.name}<br>
+<b>Mobile:</b> ${p.mobile}<br>
+<b>Complaint:</b> ${p.complaint}<br>
+<b>Prescription:</b> ${p.prescription}<br>
+<b>Follow Up:</b> ${p.followup}<br>
+`;
+
+}
+
+});
+
+document.getElementById("result")
+.innerHTML=output;
+
+}
+</script>
+
+function addFollowUp(index){
+
+let patients =
+JSON.parse(localStorage.getItem("patients"));
+
+let note =
+prompt("Enter Follow Up Note");
+
+patients[index].followupnote = note;
+
+localStorage.setItem(
+"patients",
+JSON.stringify(patients)
+);
+
+alert("Follow Up Saved");
+
+}
+
+<button onclick="window.print()">
+Print Case Sheet
+</button>
+
+function deletePatient(index){
+
+let patients =
+JSON.parse(localStorage.getItem("patients"));
+
+if(confirm("Delete Patient?")){
+
+patients.splice(index,1);
+
+localStorage.setItem(
+"patients",
+JSON.stringify(patients)
+);
+
+alert("Deleted");
+
+}
+
+}
+
+<table border="1" width="100%">
+<tr>
+<th>Name</th>
+<th>Mobile</th>
+<th>Follow Up</th>
+<th>Action</th>
+</tr>
+
+<tbody id="patientTable">
+</tbody>
+
+</table>
+
+function loadPatients(){
+
+let patients =
+JSON.parse(localStorage.getItem("patients"))
+|| [];
+
+let html="";
+
+patients.forEach((p,i)=>{
+
+html += `
+<tr>
+<td>${p.name}</td>
+<td>${p.mobile}</td>
+<td>${p.followup}</td>
+<td>
+<button onclick="addFollowUp(${i})">
+Follow Up
+</button>
+
+<button onclick="deletePatient(${i})">
+Delete
+</button>
+</td>
+</tr>
+`;
+
+});
+
+document.getElementById("patientTable")
+.innerHTML = html;
+
+}
+
+loadPatients();
+
 
 </form>
 
