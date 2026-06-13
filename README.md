@@ -116,7 +116,7 @@ text-align:center;
 
 <input type="date" id="followup">
 
-<button onclick="savePatient()">Save Case</button>
+</button> onclick="savePatient()">Save Case</button>
 
 <hr>
 
