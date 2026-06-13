@@ -1,220 +1,246 @@
-<!DOCTYPE html>
-<html>
-<head>
 
-<title>Homoeopathy Clinic</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homoeopathy Case Taking Form</title>
 
 <style>
-
 body{
-font-family:Arial;
-background:#f2f2f2;
-padding:20px;
+    font-family: Arial, sans-serif;
+    background:#f2f5f7;
+    margin:0;
+    padding:20px;
 }
 
 .container{
-background:white;
-padding:20px;
-border-radius:10px;
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
 h1{
-color:darkgreen;
+    text-align:center;
+    color:darkgreen;
 }
 
-input,textarea,select{
-width:100%;
-padding:8px;
-margin:5px 0;
+h2{
+    background:darkgreen;
+    color:white;
+    padding:8px;
+    border-radius:5px;
+}
+
+label{
+    font-weight:bold;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.row{
+    display:flex;
+    gap:15px;
+}
+
+.col{
+    flex:1;
 }
 
 button{
-padding:10px 15px;
-margin-top:10px;
-cursor:pointer;
+    background:darkgreen;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
+button:hover{
+    background:green;
 }
 
-th,td{
-border:1px solid #ccc;
-padding:8px;
-text-align:center;
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#666;
 }
-
 </style>
 
 </head>
-
 <body>
 
 <div class="container">
 
-<h1>Homoeopathy Case Taking</h1>
+<h1>Homoeopathy Case Taking Form</h1>
 
-<h3>Patient Information</h3>
+<form>
 
-<input id="name" placeholder="Patient Name">
-<input id="age" placeholder="Age">
-<input id="mobile" placeholder="Mobile">
+<h2>Patient Information</h2>
 
-<textarea id="address" placeholder="Address"></textarea>
-
-<h3>Chief Complaint</h3>
-
-<textarea id="complaint" placeholder="Main Complaint"></textarea>
-
-<h3>Mental Symptoms</h3>
-
-<textarea id="mental" placeholder="Anger / Fear / Anxiety"></textarea>
-
-<h3>Past History</h3>
-
-<textarea id="history" placeholder="Past Disease"></textarea>
-
-<h3>Lab Test Report</h3>
-
-<input type="file" id="labReport">
-
-<h3>Remedy Selection</h3>
-
-<input list="remedies" id="remedy">
-
-<datalist id="remedies">
-
-<option value="Aconite">
-<option value="Arnica">
-<option value="Arsenicum Album">
-<option value="Belladonna">
-<option value="Bryonia">
-<option value="Calcarea Carb">
-<option value="Chamomilla">
-<option value="China">
-<option value="Gelsemium">
-<option value="Hepar Sulph">
-<option value="Ignatia">
-<option value="Lycopodium">
-<option value="Merc Sol">
-<option value="Natrum Mur">
-<option value="Nux Vomica">
-<option value="Phosphorus">
-<option value="Pulsatilla">
-<option value="Rhus Tox">
-<option value="Sepia">
-<option value="Silicea">
-<option value="Sulphur">
-
-</datalist>
-
-<h3>Prescription</h3>
-
-<textarea id="medicine" placeholder="Medicine Instruction"></textarea>
-
-<input type="date" id="followup">
-
-</button> onclick="savePatient()">Save Case</button>
-
-<hr>
-
-<h2>Search Patient</h2>
-
-<input id="search" placeholder="Search name" onkeyup="searchPatient()">
-
-<h2>Patient List</h2>
-
-<table id="table">
-
-<tr>
-<th>Name</th>
-<th>Age</th>
-<th>Mobile</th>
-<th>Remedy</th>
-<th>View</th>
-<th>Print</th>
-<th>Delete</th>
-</tr>
-
-</table>
-
+<div class="row">
+<div class="col">
+<label>Patient Name</label>
+<input type="text">
 </div>
 
-<script>
+<div class="col">
+<label>Age</label>
+<input type="number">
+</div>
+</div>
 
-let patients=JSON.parse(localStorage.getItem("patients")) || [];
+<div class="row">
+<div class="col">
+<label>Gender</label>
+<select>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
 
-function savePatient(){
+<div class="col">
+<label>Mobile Number</label>
+<input type="tel">
+</div>
+</div>
 
-let p={
+<label>Address</label>
+<textarea rows="2"></textarea>
 
-name:document.getElementById("name").value,
-age:document.getElementById("age").value,
-mobile:document.getElementById("mobile").value,
-address:document.getElementById("address").value,
-complaint:document.getElementById("complaint").value,
-mental:document.getElementById("mental").value,
-history:document.getElementById("history").value,
-remedy:document.getElementById("remedy").value,
-medicine:document.getElementById("medicine").value,
-followup:document.getElementById("followup").value
+<h2>Chief Complaints</h2>
 
-};
+<label>Main Complaint</label>
+<textarea rows="3"></textarea>
 
-patients.push(p);
+<label>Duration</label>
+<input type="text">
 
-localStorage.setItem("patients",JSON.stringify(patients));
+<h2>History of Present Illness</h2>
 
-showPatients();
+<textarea rows="4"></textarea>
 
-alert("Case Saved");
+<h2>Past History</h2>
 
-}
+<textarea rows="3"></textarea>
 
-function showPatients(){
+<h2>Family History</h2>
 
-let table=document.getElementById("table");
+<textarea rows="3"></textarea>
 
-table.innerHTML=`<tr>
-<th>Name</th>
-<th>Age</th>
-<th>Mobile</th>
-<th>Remedy</th>
-<th>View</th>
-<th>Print</th>
-<th>Delete</th>
-</tr>`;
+<h2>Physical Generals</h2>
 
-patients.forEach((p,i)=>{
+<label>Appetite</label>
+<input type="text">
 
-let row=table.insertRow();
+<label>Thirst</label>
+<input type="text">
 
-row.insertCell(0).innerHTML=p.name;
-row.insertCell(1).innerHTML=p.age;
-row.insertCell(2).innerHTML=p.mobile;
-row.insertCell(3).innerHTML=p.remedy;
+<label>Food Likes</label>
+<input type="text">
 
-let viewBtn=document.createElement("button");
-viewBtn.innerHTML="View";
+<label>Food Dislikes</label>
+<input type="text">
 
-viewBtn.onclick=function(){
+<label>Sleep</label>
+<input type="text">
 
-alert(
+<label>Dreams</label>
+<input type="text">
 
-"Name: "+p.name+
-"\nAge: "+p.age+
-"\nMobile: "+p.mobile+
-"\nAddress: "+p.address+
-"\nComplaint: "+p.complaint+
-"\nMental: "+p.mental+
-"\nPast History: "+p.history+
-"\nRemedy: "+p.remedy+
-"\nMedicine: "+p.medicine+
-"\nFollowUp: "+p.follo
+<label>Bowel Habit</label>
+<input type="text">
 
-</script>
+<label>Urination</label>
+<input type="text">
+
+<label>Thermal Reaction</label>
+<select>
+<option>Hot Patient</option>
+<option>Chilly Patient</option>
+<option>Mixed</option>
+</select>
+
+<h2>Mental Generals</h2>
+
+<label>Nature & Temperament</label>
+<textarea rows="2"></textarea>
+
+<label>Fear</label>
+<textarea rows="2"></textarea>
+
+<label>Anxiety</label>
+<textarea rows="2"></textarea>
+
+<label>Anger</label>
+<textarea rows="2"></textarea>
+
+<label>Memory</label>
+<textarea rows="2"></textarea>
+
+<h2>Female History</h2>
+
+<label>Menstrual History</label>
+<textarea rows="2"></textarea>
+
+<label>Pregnancy History</label>
+<textarea rows="2"></textarea>
+
+<h2>Clinical Examination</h2>
+
+<div class="row">
+<div class="col">
+<label>Pulse</label>
+<input type="text">
+</div>
+
+<div class="col">
+<label>Blood Pressure</label>
+<input type="text">
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<label>Height</label>
+<input type="text">
+</div>
+
+<div class="col">
+<label>Weight</label>
+<input type="text">
+</div>
+</div>
+
+<h2>Diagnosis</h2>
+<textarea rows="3"></textarea>
+
+<h2>Prescription</h2>
+<textarea rows="3"></textarea>
+
+<h2>Follow Up Date</h2>
+<input type="date">
+
+<button type="submit">Save Case</button>
+
+</form>
+
+<div class="footer">
+© Homoeopathy Clinic Case Record System
+</div>
+
+</div>
 
 </body>
 </html>
