@@ -237,7 +237,7 @@ button:hover{
 </form>
 
 <div class="footer">
-© Homoeopathy Clinic Case Record System
+© Mahashakthi homoeo chikithsalay 
 </div>
 
 </div>
